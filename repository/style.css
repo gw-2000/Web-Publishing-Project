@@ -1,0 +1,261 @@
+/*Code for the breadcrumb link at top of article*/
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+ul.breadcrumb li {
+  display: inline;
+}
+
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  content: "/\00a0";
+}
+
+ul.contents {
+  list-style: none;
+  font-family: Helvetica, sans-serif;
+}
+
+ul.contents li {
+  padding: 2px;
+}
+ul.contents a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+ul.contents a:hover {
+  text-decoration: none;
+  color: lightgray;
+}
+
+/*CSS Markup of Headings*/
+h1 {
+  font-size: 150%;
+  font-style: italic;
+}
+
+h2 {
+  text-align: left;
+  font-size: 130%;
+  font-style: normal;
+}
+
+/*Coverpage Button Styling*/
+.buttonstyle {
+  background: lightblue;
+}
+
+/*Markup of paragraphs and lists*/
+p {
+  font-size: 100%;
+  text-decoration: none;
+}
+
+ol {
+  text-align: center;
+}
+
+ul.ba {
+  list-style-type: none;
+}
+
+/* Hypertext related CSS*/
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline 2px;
+  text-decoration-color: #45a1ba;
+}
+
+/* Making text italic with CSS */
+
+.italics {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* Image Styling*/
+
+.prevfont {
+  font-family: Helvetica, sans-serif;
+}
+
+.figure1 {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.logo {
+  border-radius: 15px;
+  width: 200px;
+  height: auto;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+/* **GRID LAYOUTS** */
+
+/*Figure*/
+@media only screen and (min-width: 768px) {
+  figure {
+    padding: 30px;
+  }
+}
+
+figure img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+figure figcaption {
+  text-align: center;
+}
+
+figure .figsmall {
+  max-width: 60%;
+  height: auto;
+  padding: 3px;
+}
+
+/*Header*/
+.masthead {
+  background: #263f57;
+  grid-area: masthead;
+}
+
+/*Main & Article*/
+@media only screen and (min-width: 768px) {
+  main {
+    background: #f8f8ff;
+    width: 120%;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+article {
+  background: #f8f8ff;
+  grid-area: article;
+  padding: 5px;
+  width: 100%;
+}
+
+/*Section*/
+section {
+  background: #cc9090;
+  max-width: 100%;
+  height: auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/*Sidebar*/
+aside {
+  background: #ababb4;
+  padding: 10px;
+}
+@media only screen and (min-width: 768px) {
+  /*Ensures the sidebar sticks while scrolling*/
+  .sidebar {
+    grid-area: sidebar;
+    align-items: flex-start;
+    position: sticky;
+    height: 650px;
+    width: 250px;
+    top: 0.5rem;
+    bottom: 20rem;
+    z-index: 10;
+    border-radius: 3px;
+  }
+}
+
+.sidebar h3 {
+  font-family: Helvetica, sans-serif;
+  color: whitesmoke;
+}
+
+/*Footer*/
+.pagefooter {
+  background: #276b7d;
+  grid-area: pagefooter;
+  border-top: 1px solid black;
+  color: whitesmoke;
+  font-family: Helvetica, sans-serif;
+  padding: 20px;
+  text-align: left;
+}
+
+.pagefooter a {
+  color: whitesmoke;
+}
+
+footer a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+footer li {
+  list-style-type: none;
+}
+
+/*Navigation Bar*/
+nav {
+  background: #ffffff;
+  margin-top: 30px;
+  background-color: #45a1ba;
+  height: 40px;
+  border-radius: 3px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  display: block;
+  font-family: Helvetica, sans-serif;
+  color: whitesmoke;
+}
+
+nav li a:hover {
+  background-color: #3a8599;
+  color: lightgray;
+  text-decoration: none;
+}
+
+/*Screen*/
+@media only screen and (min-width: 768px) {
+  .screen {
+    background: #f8f8ff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "masthead masthead masthead"
+      "sidebar main main"
+      "pagefooter pagefooter pagefooter";
+    grid-gap: 5px;
+    padding: 10px;
+  }
+}

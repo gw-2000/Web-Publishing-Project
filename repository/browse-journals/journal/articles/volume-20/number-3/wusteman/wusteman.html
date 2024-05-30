@@ -1,0 +1,259 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../../../../../../style.css" />
+    <title>Document Type Definitions</title>
+  </head>
+  <body>
+    <div class="screen">
+      <header class="masthead" id="top">
+        <a href="../../../../coverpage.html">
+          <img
+            class="logo"
+            src="../../../../../../journal-wide-graphics/Logo.png"
+            alt="Logo"
+          />
+        </a>
+        <nav>
+          <ul>
+            <li><a href="../../../../../../homepage/homepage.html">Home</a></li>
+            <li>
+              <a href="../../../../../browse.html">Browse Journals</a>
+            </li>
+            <li>
+              <a href="../../../../../../contact-page/contact.html"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section>
+          <h1>International Journal of Informatics & Internet Science</h1>
+          <h2>Volume 21, Number 3, Autumn 2021</h2>
+        </section>
+        <ul class="breadcrumb">
+          <li><a href="../../../../../journal/coverpage.html">Home</a></li>
+          <li>Document Type Definitions</li>
+        </ul>
+        <article>
+          <h1>Document Type Definitions</h1>
+          <h2><i>Judith Wusteman</i></h2>
+          <hr />
+          <h3 id="abstract">Abstract</h3>
+          <p>
+            Document Type Definitions (DTDs) are schemas that describe the
+            structure and, to a limited extent, the content of Extensible Markup
+            Language (XML) and Standard Generalized Markup Language (SGML)
+            documents <a href="#brown">(Brown, 2002)</a>. At its inception, the
+            XML standard inherited the DTD from SGML as its only schema
+            language. Many alternative schema languages have subsequently been
+            developed for XML. But the DTD is still alive and actively used to
+            define narrative-based document types. This article describes the
+            basic syntax of the DTD and compares it to its two main rivals: W3C
+            XML Schema and RELAX NG.
+          </p>
+          <h3 id="introduction">Introduction</h3>
+          <p>
+            Despite their names, Extensible Markup Language (XML) and its
+            predecessor, Standard Generalized Markup Language (SGML), are not
+            languages per se. Rather, they are systems for creating customised
+            markup languages. The languages created by XML and SGML are referred
+            to as XML and SGML applications, respectively. The sets of rules
+            that define XML and SGML applications are called schemas. Schemas
+            describe the structure and, to a varying extent, the content and
+            semantics of documents that conform to specific applications. For
+            example, a schema for XHTML 1.0 Strict would, among other things,
+            identify and define the relationships between the elements and
+            attributes allowed or required in an XHTML 1.0 Strict document. The
+            schema language designed for use by SGML applications was the
+            Document Type Definition (DTD). At its inception, the XML standard
+            inherited the DTD as its only schema language. However, many
+            alternative schema languages have subsequently been developed for
+            XML. The most influential of these are the W3C XML Schema language
+            <sup><a href="#scema">1</a></sup> and the RELAX NG schema Language
+            <sup><a href="#relax">2</a></sup
+            >. But, despite its rivals, and continuous predictions of its
+            demise, the DTD is still alive and actively used to define
+            narrative-based document types such as e-journal articles, prose,
+            poetry and, for the time-being, archival finding aids.
+          </p>
+          <h3 id="xml_instances">XML Instances</h3>
+          <p>
+            XML documents are commonly referred to as XML instances. The
+            software that reads and interprets these instances is called an XML
+            parser. The parser may be contained within another piece of
+            software, such as a browser or an editor, or it may exist
+            independently. Parsers come in two main varieties: non-validating
+            and validating. Non-validating parsers simply check whether XML
+            instances are well-formed, i.e., whether they obey basic constraints
+            such as including a root element that contains all other elements.
+            Validating parsers also check whether instances are valid, i.e.,
+            whether they conform to the rules of a schema, e.g., a DTD.
+          </p>
+          <figure>
+            <a href="graphics/figure1.png" target="_blank"
+              ><img class="figure1" src="graphics/figure1.png" alt="Figure 1"
+            /></a>
+            <figcaption>
+              Figure 1 - An XML instance of a simplified book catalogue
+              entryplus DTD
+            </figcaption>
+          </figure>
+          <h3 id="dtd_syntax">DTD Syntax</h3>
+          <p>
+            <!--&lt; and &gt; seen below to prevent bogus element error in validator-->
+            Figure 1 illustrates an example of a well-formed XML instance,
+            prefaced by the relevant DTD (within the square brackets). This
+            simple DTD comprises a series of element and attribute declarations.
+            The first thing to notice is that a DTD is not written using XML
+            document syntax; rather, it uses a distinctive syntax of its own.
+            The basic structure of an element declaration is as follows:
+            &lt;!ELEMENT elementName (content-model)&gt; Note that reserved
+            words, such as ELEMENT, must appear in upper case. The right-hand
+            side of the element declaration, referred to as the content model,
+            details what combinations of child elements and plain text
+            (indicated by #PCDATA) are permitted to appear in the element in
+            question and in what order they may appear.
+          </p>
+          <figure>
+            <figcaption class="t-caption">
+              Table 1 - Occurance Indicators
+            </figcaption>
+            <a href="graphics/table-1.png" target="_blank"
+              ><img src="graphics/table-1.png" alt="Table 1"
+            /></a>
+          </figure>
+          <p>
+            The occurrence indicators +, ? and *, listed in Table 1, define how
+            many times an element (or a more complex pattern within parentheses)
+            can be repeated. For example,an entry may include * One optional
+            publisher * At least one isbn, but it can have any number. * Any
+            number of notes or none at all.
+          </p>
+          <h3 id="combo_schema">Combining Schemas</h3>
+          <p>
+            The validation of XML documents is too diverse to rely on a single
+            schema language across all domains
+            <a href="#goldberg">(Goldberg, 2009)</a>. It is likely that the
+            medium term future will see the use of a range of schema languages,
+            particularly XML Schema, RELAX NG, DTDs and, to a lesser extent,
+            Schematron <sup><a href="#stron">3</a></sup
+            >. This is being encouraged by the development of the ISO Document
+            Schema Definition Languages (DSDL) standard
+            <sup><a href="#dsdl">4</a></sup> which aims to standardize a set of
+            schema languages and define a framework for their use.
+          </p>
+          <figure>
+            <figcaption>
+              Table 2 - Example applications and their schemas.
+            </figcaption>
+            <a href="graphics/table-2.png" target="_blank"
+              ><img src="graphics/table-2.png" alt="Table 2"
+            /></a>
+          </figure>
+          <p>
+            One part of the DSDL standard is a new generation of namespace and
+            data type-aware DTDs. However, this is still at an early stage.
+            Increasingly, applications do not rely on one document model to
+            provide all the information necessary for validation
+            <sup><a href="#xmlfaq">5</a></sup
+            ><sup> <a href="#xml1">6</a></sup
+            >. For example, DTDs may provide the tag set but additional rules
+            about how these tags may be used is enforced via another schema
+            language, such as Schematron, or via a traditional programming
+            language such as Perl, JavaScript, XSLT, Python, Java, C#, C++,or
+            Ruby. Table 2 lists some sample XML applications along with their
+            normative, or definitive, schema form and any other schemas
+            available.
+          </p>
+          <h3 id="notes">Notes</h3>
+          <ol class="italics">
+            <li id="scema">
+              <a href="http://www.w3.org/XML/Schema">W3C XML Schema</a>
+            </li>
+            <li id="relax"><a href="http://relaxng.org/">RELAX NG</a></li>
+            <li id="stron">
+              <a href="http://www.schematron.com/">Schematron</a>
+            </li>
+            <li id="dsdl">
+              <a href="http://xml.coverpages.org/dsdl.html"
+                >Document Schema Definition Languages (DSDL) standard</a
+              >
+            </li>
+            <li id="xmlfaq">
+              <a href="http://silmaril.ie">The XML FAQ</a>
+            </li>
+            <li id="xml1">
+              <a href="https://www.mulberrytech.com/quickref/XMLquickref.pdf"
+                >XML 1.0 Syntax Quick Reference</a
+              >
+            </li>
+          </ol>
+          <h3 id="references">References</h3>
+          <ul class="ba">
+            <li id="brown">
+              Brown, A. XSD Schemas in book and journal publishing. In XML
+              Europe 2002, Barcelona, Spain, May 20–23, 2002.
+              <a
+                href="http://tecfaetu.unige.ch/staf/staf-i/gorga/staf18/tm/t-1273-0-3636.html"
+                >http://tecfaetu.unige.ch/staf/staf-i/gorga/staf18/tm/t-1273-0-3636.html</a
+              >
+            </li>
+            <li id="goldberg">
+              Goldberg, K.H. XML, Second edition; peachpit Press: Berkeley,
+              Addison Wesley Longman, 2009.
+            </li>
+          </ul>
+        </article>
+      </main>
+      <aside class="sidebar">
+        <!--Sidebar should be sticky and be fixed when scrolling for better usability-->
+        <h3>Table of Contents:</h3>
+        <ul class="contents">
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#xml_instances">XML Instances</a></li>
+          <li><a href="#dtd_syntax">DTD Syntax</a></li>
+          <li><a href="#combo_schema">Combining Schemas</a></li>
+          <li><a href="#notes">Notes</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+        <hr />
+        <h3>Related Articles:</h3>
+        <ul class="contents">
+          <li>
+            <a href="../regan/regan.html"
+              >An Exploration of Vague Internet Standards - Seán Regan</a
+            >
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <footer class="pagefooter">
+      <ul>
+        <li><a href="wusteman.html#top">Back to Top</a></li>
+        <li>
+          <a href="../../../../../../contact-page/contact.html">Contact Us</a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.com/maps/dir/53.3033377,-6.2180919/University+College+Dublin,+Belfield,+Dublin+4/@53.3050712,-6.2244285,17z/data=!3m1!4b1!4m17!1m6!3m5!1s0x4867093120c83a63:0x36762af31424bfcf!2sUniversity+College+Dublin!8m2!3d53.3064642!4d-6.2254879!4m9!1m1!4e1!1m5!1m1!1s0x4867093120c83a63:0x36762af31424bfcf!2m2!1d-6.2254879!2d53.3064642!3e3"
+            target="_blank"
+            >Getting Here</a
+          >
+        </li>
+      </ul>
+      <p>
+        <i
+          >Copyright &copy; 2021 Informatics Repository, except certain content
+          provided by third parties.</i
+        >
+      </p>
+    </footer>
+  </body>
+</html>
